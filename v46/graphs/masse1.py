@@ -14,15 +14,23 @@ mask = ~np.isnan(wellenlaenge) & ~np.isnan(theta_abs_1)
 w_clean = wellenlaenge[mask]
 t_clean = theta_abs_1[mask]
 
-# 3. Lineare Regression berechnen (jetzt mit den sauberen Daten)
-m, b = np.polyfit(w_clean, t_clean, 1)
+# 3. Lineare Regression berechnen (jetzt mit Fehlerberechnung!)
+# cov=True liefert zusätzlich die Kovarianzmatrix
+params, cov = np.polyfit(w_clean, t_clean, 1, cov=True)
+m = params[0] # Steigung
+b = params[1] # y-Achsenabschnitt
+
+# Der Fehler ist die Wurzel aus den Diagonaleinträgen der Matrix
+m_err = np.sqrt(cov[0, 0])
+b_err = np.sqrt(cov[1, 1])
+
 # x-Werte für die durchgehende Linie erzeugen
 x_fit = np.linspace(wellenlaenge.min(), wellenlaenge.max(), 100)
 y_fit = m * x_fit + b
 
-# NEU: Werte im Terminal ausgeben
-print(f"Steigung (m): {m:.2e}")
-print(f"y-Achsenabschnitt (b): {b:.2e}")
+# NEU: Werte inklusive Fehler im Terminal ausgeben (+/-)
+print(f"Steigung (m): {m:.2e} +/- {m_err:.2e}")
+print(f"y-Achsenabschnitt (b): {b:.2e} +/- {b_err:.2e}")
 # 4. Diagramm plotten
 plt.figure(figsize=(8, 5))
 plt.plot(wellenlaenge, theta_abs_1, 'go', label='Messwerte (undotiert)')

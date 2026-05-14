@@ -95,6 +95,60 @@ Im Folgenden sind die Messwerte zur Bestimmung der Drehwinkel der Proben aufgetr
     \end{tabular}
 \end{table}
 
+Im Folgenden werden die Drehwinkel für die drei Proben in Abhängigkeit der Wellenlänge graphisch aufgetragen. 
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphs/theta_vs_lambda_undotiert.png}
+    \caption{Drehwinkel der undotierten Probe in Abhängigkeit der Wellenlänge.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphs/theta_vs_lambda_n1.png}
+    \caption{Drehwinkel der ersten n-dotierter Probe in Abhängigkeit der Wellenlänge.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphs/theta_vs_lambda_n2.png}
+    \caption{Drehwinkel der zweiten n-dotierter Probe in Abhängigkeit der Wellenlänge.}
+\end{figure}
+\subsection{Bestimmung der effektiven Masse}
+Im Folgenden wird der die Differenz der n-dotierten Proben zu der undotierten Probe gebildet, um die effektive Masse zu bestimmen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphs/theta_abs_1_vs_lambda_linreg.png}
+    \caption{Drehwinkel der Differenz der ersten n-dotierten Probe in Abhängigkeit der Wellenlänge.}
+\end{figure}
+
+Die lineare Regression liefert für $y=a \cdot x + b$ den Wert
+\begin{align*}
+    a_1 &= \qty{4.36 \pm 0.72 e-5}{\per\micro\metre\cubed} \\
+\end{align*}    
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphs/theta_abs_2_vs_lambda_linreg.png}
+    \caption{Drehwinkel der Differenz der zweiten n-dotierten Probe in Abhängigkeit der Wellenlänge.}
+\end{figure}
+Die lineare Regression liefert für $y=a \cdot x + b$ den Wert
+\begin{align*}
+    a_2 &= \qty{3.00 \pm 0.51 e-5}{\per\micro\metre\cubed} \\
+\end{align*}
+
+Mithilfe von 
+\begin{equation*}
+    \begin{split}
+        m^\ast &= \sqrt{\frac{e^3 \cdot N \cdot B}{8 \pi^2 \cdot \varepsilon_0 \cdot c^3 \cdot n \cdot a}} \\
+    \end{split}
+\end{equation*}
+kann die effektive Masse $m*$ bestimmt werden.
+Daraus folgt
+\begin{align*}
+    m_{\text{eff},1} &= \num{0.046 \pm 0.004} \, m_{\text{e}} \\
+    m_{\text{eff},2} &= \num{0.036 \pm 0.003} \, m_{\text{e}}
+\end{align*}
+für die beiden effektiven Massen.
 \clearpage
