@@ -29,4 +29,4 @@ plt.grid(True)
 plt.legend()
 
 # Speichern
-plt.savefig('theta_vs_lambda_n1.png', dpi=300, bbox_inches='tight')
+plt.savefig(dir + 'theta_vs_lambda_n1.png', dpi=300, bbox_inches='tight')

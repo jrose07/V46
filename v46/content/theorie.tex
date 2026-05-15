@@ -1,6 +1,91 @@
 \section{Theorie}
-\label{sec:Theorie}
+~\label{sec:Theorie}
 
-\subsection{Glan-Thompson-Prisma}
+\subsection{Die effektive Masse}
+
+\subsection{Zirkulare Doppelbrechung}
+
+Zirkuläre Doppelbrechung beschreibt den Effekt, dass die Polarisationsebene eines linear polarisierten Lichtstrahls beim Durchgang durch ein Medium gedreht wird, so wie in \autoref{fig:doppelbrechung} dargestellt.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{content/pics/doppelbrechung.png}
+    \caption{Zirkulare Doppelbrechung.~\cite{anhang}}
+    \label{fig:doppelbrechung}
+\end{figure}
+
+Der Effekt lässt sich durch einer unterschiedliche Phasengeschwindigkeit der zirkularen Komponenten des Lichtsstrahls erklären. \\
+Um dies zu verstehen, wird ausgenutzt, dass ein linear polarisierter Lichtstrahl als Überlagerung 
+\begin{align*}
+    E(z) = \frac{1}{2}\left(E_R(z) + E_L(z)\right)
+\end{align*}
+von zwei zirkular polarisierten Komponenten $E_R(z)$ und $E_L(z)$ beschrieben werden kann. \\
+Haben diese beiden Komponenten unterschiedliche Wellenzahlen $k_R$ und $k_L$, so ergibt sich für die Rotation der Polarisationsebene
+\begin{align*} 
+    \Theta = \frac{L\omega}{2}\left(\frac{1}{v_{\text{ph},R}} - \frac{1}{v_{\text{ph},L}}\right) = \frac{L\omega}{2c}\left(n_R - n_L\right),
+\end{align*}
+wobei $L$ die Länge des Mediums, $\omega$ die Kreisfrequenz des Lichts, $v_{\text{ph},R}$ und $v_{\text{ph},L}$ die Phasengeschwindigkeiten der zirkularen Komponenten und $n_R$ und $n_L$ die entsprechenden Brechungsindizes sind. \\
+Damit die Doppelbrechung auftritt, muss das Medium also eine gewisse Anistropie besitzen, die dafür sorgt, dass die Brechungsindizes für die zirkularen Komponenten unterschiedlich sind. \\
+
+Auf mikroskopischer Ebene ist erkennbar, dass sich diese Anistropie durch induzierte elektrische Dipolmomente ausbildet, die durch die Wechselwirkung der Elektronen mit dem elektromagnetischen Feld des Lichts entstehen. Es entsteht also eine makroskopische Polarisation
+\begin{equation*}
+    \vec{P} = \epsilon_0 \chi \vec{E}
+\end{equation*} 
+mit der elektrischen Feldstärke $\vec{E}$, der dielektrischen Suszeptibilität $\chi$ und der elektrischen Feldkonstante $\epsilon_0$. \\
+Permamente Dipolmomente haben keinen großen Beitrag zu dieser Polarisation, da ihre Relaxationszeit zu groß ist, um dem schnellen Wechselfeld des Lichts ($\nu \approx 10^{-15}\,\text{s}$) zu folgen. \\
+
+Die dielektrische Suszeptibilität $\chi$ ist im Allgemeinen ein Tensor und kann für ein optisch inaktives Medium (also isotropes Medium)in der Form 
+\begin{equation*}
+    \chi = \begin{pmatrix}
+        \chi_{xx} & 0 & 0 \\
+        0 & \chi_{yy} & 0 \\
+        0 & 0 & \chi_{zz}
+    \end{pmatrix}
+\end{equation*}
+geschrieben werden. \\
+In einem optisch aktiven Medium, das zirkulare Doppelbrechung zeigt, treten jedoch auch nicht-diagonale, also anistropischeElemente auf, die die Ursache der Doppelbrechung sind. \\
+Es kann gezeigt werden, dass ein doppelbrechendes Medium eine Suszeptibilität der Form
+\begin{equation*}
+    \chi = \begin{pmatrix}
+        \chi_{xx} & i\chi_{xy} & 0 \\
+        -i\chi_{xy} & \chi_{yy} & 0 \\
+        0 & 0 & \chi_{zz}
+    \end{pmatrix}
+    \label{eq:chi_doppelbrechung}
+\end{equation*}
+besitzt mit den daraus resultierenden Phasengeschwindigkeiten
+\begin{align*}
+    v_{\text{ph},R} &= \frac{c}{\sqrt{1 + \chi_{xx} + \chi_{xy}}} & \quad \text{und} & &
+    v_{\text{ph},L} &= \frac{c}{\sqrt{1 + \chi_{xx} - \chi_{xy}}}.
+\end{align*}
+für die unterschiedlichen zirkularen Komponenten. \\
+Der Rotationswikel $\Theta$ lässt sich damit schreiben als
+\begin{equation*}
+    \Theta = \frac{L\omega}{2c}\left(\sqrt{1+\chi_{xx} + \chi_{xy}} - \sqrt{1+\chi_{xx}-\chi_{xy}}\right) \, ,
+\end{equation*} 
+bzw. für kleine $\chi_{xy}$ als
+\begin{equation*}
+    \Theta \approx \frac{L\omega}{2c}\frac{\chi_{xy}}{\sqrt{1+\chi_{xx}}} \; .
+\end{equation*}
+
+\subsection{Der Faraday-Effekt}
+
+Der Faraday-Effekt beschreibt nun, dass die Polarisationsebene eine linear polarisierten Lichtstrahls auch bei der Transmission durch ein isotropes Medium gedreht wird, wenn dieses von einem Magnetfeld $\vec{B} \parallel \vec{k}$ durchsetzt ist. \\
+
+Die Ursache für diesen Effekt lässt sich anhand eines einfachen, klassischen Elektronenmodells 
+\begin{equation*}
+    m\frac{d^2\vec{r}}{dt^2} + K\vec{r} = -e_0 \vec{E}(t) - e_0 \frac{d\vec{r}}{dt} \times \vec{B}
+    \label{eq:lorentz}
+\end{equation*}
+ohne Dämpfungsterm $\gamma \frac{d\vec{r}}{dt}$ erklären, wobei $m$ die Elektronenmasse, $K$ die Federkonstante, $e_0$ die Elementarladung, $\vec{r}(t)$ die Auslenkung des Elektrons aus der Ruhelage und $\vec{E}(t)$ die elektrische Feldstärke des Lichts ist. \\
+
+
+
+
+
+
+
+\subsection{Das Glan-Thompson-Prisma}
+
 
 \clearpage
