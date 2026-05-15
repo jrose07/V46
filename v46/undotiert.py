@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+dir = "content/plots/"
+dir_tab = "content/tables/"
+
 # Datei einlesen
-df = pd.read_excel('raw/n-dotiert_2.ods', engine='odf', skiprows=1)
+df = pd.read_excel('raw/undotiert.ods', engine='odf', skiprows=1)
 
 # Spalten auslesen
 wellenlaenge = df.iloc[:, 1].astype(str).str.replace(',', '.').astype(float)
@@ -20,10 +23,10 @@ plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
 
 plt.xlabel(r'Wellenlänge $\lambda^2$ [$\mu m^2$]')
 plt.ylabel(r'Normierter Rotationswinkel $\theta_{skaliert}$ [rad/m]')
-plt.title(r'Faraday-Rotation: $\theta_{skaliert}$ gegen $\lambda^2$ (n-dotiert 2)')
+plt.title(r'Faraday-Rotation: $\theta_{skaliert}$ gegen $\lambda^2$ (undotiert)')
 
 plt.grid(True)
 plt.legend()
 
 # Speichern
-plt.savefig('theta_vs_lambda_n2.png', dpi=300, bbox_inches='tight')
+plt.savefig(dir + 'theta_vs_lambda_undotiert.png', dpi=300, bbox_inches='tight')

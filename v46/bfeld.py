@@ -2,6 +2,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+dir = "content/plots/"
+dir_tab = "content/tables/"
+
 # Datei einlesen
 df = pd.read_excel('raw/bfeld.ods', engine='odf')
 
@@ -31,4 +34,4 @@ plt.legend()
 plt.grid(True)
 
 # Speichern
-plt.savefig('Bfeld.png', dpi=300, bbox_inches='tight')
+plt.savefig(dir + 'Bfeld.png', dpi=300, bbox_inches='tight')

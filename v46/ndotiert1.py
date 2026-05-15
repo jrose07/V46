@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+dir = "content/plots/"
+dir_tab = "content/tables/"
+
 # Datei einlesen
 df = pd.read_excel('raw/n-dotiert_1.ods', engine='odf', skiprows=1)
 

@@ -3,6 +3,9 @@ import scipy.constants as const
 from uncertainties import ufloat
 from uncertainties.umath import sqrt
 
+dir = "content/plots/"
+dir_tab = "content/tables/"
+
 # --- 1. Naturkonstanten (aus scipy.constants) ---
 e = const.e          # Elementarladung [C]
 eps0 = const.epsilon_0 # Elektrische Feldkonstante [F/m]
@@ -11,7 +14,7 @@ m_e = const.m_e      # Elektronenruhemasse [kg] (nur für den relativen Vergleic
 
 # --- 2. Versuchsspezifische Parameter (HIER ÄNDERN) ---
 # Trage hier deine Werte ein!
-N_val = 2.8e24       # Dotierungskonzentration [m^-3] (Bsp: 1e18 cm^-3 -> 1e24 m^-3)
+N_val = 1.2e24       # Dotierungskonzentration [m^-3] (Bsp: 1e18 cm^-3 -> 1e24 m^-3)
 n_val = 3.3543          # Brechungsindex (dimensionslos)
 
 # Magnetfeld in Tesla
@@ -20,8 +23,8 @@ B_err = 0.001
 B = ufloat(B_val, B_err)
 
 # Steigung a in µm^-3 eintragen!
-a_val = 4.36e-5       # Dein abgelesener Wert
-a_err = 0.72e-5       # Dein Fehler
+a_val = 3.00e-5       # Dein abgelesener Wert
+a_err = 0.51e-5       # Dein Fehler
 a_ufloat_um3 = ufloat(a_val, a_err)
 
 # NEU: Umrechnung von µm^-3 in die SI-Einheit m^-3 
