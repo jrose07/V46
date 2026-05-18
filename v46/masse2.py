@@ -9,7 +9,6 @@ dir_tab = "content/tables/"
 df = pd.read_excel('raw/undotiert.ods', engine='odf', skiprows=1)
 
 # 2. Spalten auslesen, Kommas ersetzen und Fehler in 'NaN' umwandeln
-# lambda[µm] liegt auf Index 1, theta_abs_2 liegt nun auf Index 12
 wellenlaenge = pd.to_numeric(df.iloc[:, 1].astype(str).str.replace(',', '.'), errors='coerce')
 theta_abs_2 = pd.to_numeric(df.iloc[:, 12].astype(str).str.replace(',', '.'), errors='coerce')
 
@@ -19,6 +18,7 @@ w_clean = wellenlaenge[mask]
 t_clean = theta_abs_2[mask]
 
 # 3. Lineare Regression mit Gewichten und unskalierter Kovarianzmatrix berechnen
+# (Rechnung bleibt in Originalwerten, damit die Prints stimmen!)
 params, cov = np.polyfit(w_clean, t_clean, 1, cov=True)
 m = params[0] # Steigung
 b = params[1] # y-Achsenabschnitt
@@ -35,23 +35,23 @@ y_fit = m * x_fit + b
 print(f"Steigung (m): {m:.2e} +/- {m_err:.2e}")
 print(f"y-Achsenabschnitt (b): {b:.2e} +/- {b_err:.2e}")
 
+# --- NEU: Werte NUR für die Optik im Plot auf 10^-4 skalieren ---
+t_clean_plot = t_clean * 10**4
+y_fit_plot = y_fit * 10**4
+
 # 4. Diagramm plotten
 plt.figure(figsize=(8, 5))
-plt.plot(w_clean, t_clean, 'go', label='Messwerte (undotiert)')
+plt.plot(w_clean, t_clean_plot, 'go', label='Messwerte (undotiert)')
 
 # Regressionsgerade einzeichnen (rot, gestrichelt)
-plt.plot(x_fit, y_fit, 'r--', label='Lineare Regression')
+plt.plot(x_fit, y_fit_plot, 'r--', label='Lineare Regression')
 
-# 5. Wissenschaftliche Notation (10^-5 Skala) für die y-Achse aktivieren
-plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
-
-# 6. Achsen passend beschriften
+# 5. Achsen passend beschriften (Vorfaktor direkt im Label!)
 plt.xlabel(r'Wellenlänge $\lambda$ [$\mu m$]')
-plt.ylabel(r'Absoluter Rotationswinkel $\theta_{abs,2}$ [rad/m]')
-plt.title(r'Faraday-Rotation: $\theta_{abs,2}$ gegen $\lambda$ (undotiert)')
+plt.ylabel(r'Absoluter Rotationswinkel $\theta_{abs,2}$ [$10^{-4}$ rad/m]')
 
 plt.grid(True)
 plt.legend()
 
-# 7. Plot in hoher Auflösung speichern
+# 6. Plot in hoher Auflösung speichern
 plt.savefig(dir + 'theta_abs_2_vs_lambda_linreg.png', dpi=300, bbox_inches='tight')

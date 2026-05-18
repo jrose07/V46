@@ -23,13 +23,11 @@ plt.figure(figsize=(10, 6))
 plt.plot(z_werte, B_werte, 'bx', label='Messwerte')
 
 # NEU: Nur Linien durch das Maximum ziehen (vertikal und horizontal)
-plt.axvline(z_max, color='r', linestyle='--', label=f'z_max = {z_max} mm')
 plt.axhline(B_max, color='r', linestyle=':', alpha=0.7, label=f'B_max = {B_max} mT')
 plt.plot(z_max, B_max, 'ro') # Roter Punkt direkt auf dem Maximum
 
 plt.xlabel('Ort z [mm]')
 plt.ylabel('Kraftflussdichte B [mT]')
-plt.title('Magnetfeldverlauf der Spule')
 plt.legend()
 plt.grid(True)
 

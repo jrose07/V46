@@ -14,15 +14,16 @@ theta_skaliert = df.iloc[:, 6].astype(str).str.replace(',', '.').astype(float)
 # Wellenlänge quadrieren
 lambda_sq = wellenlaenge ** 2
 
-# Plot erstellen
-plt.figure(figsize=(8, 5))
-plt.plot(lambda_sq, theta_skaliert, 'bo', label='Messwerte')
+# NEU: Werte manuell für die 10^-4 Skalierung anpassen
+theta_skaliert_angepasst = theta_skaliert * 10**4
 
-# NEU: Wissenschaftliche Notation für die y-Achse aktivieren
-plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
+# Plot erstellen (jetzt mit den angepassten Werten)
+plt.figure(figsize=(8, 5))
+plt.plot(lambda_sq, theta_skaliert_angepasst, 'bo', label='Messwerte')
 
 plt.xlabel(r'Wellenlänge $\lambda^2$ [$\mu m^2$]')
-plt.ylabel(r'Normierter Rotationswinkel $\theta_{skaliert}$ [rad/m]')
+# NEU: Den Vorfaktor 10^-4 direkt ins Label schreiben
+plt.ylabel(r'Normierter Rotationswinkel $\theta_{skaliert}$ [$10^{-4}$ rad/m]')
 plt.title(r'Faraday-Rotation: $\theta_{skaliert}$ gegen $\lambda^2$ (n-dotiert 2)')
 
 plt.grid(True)

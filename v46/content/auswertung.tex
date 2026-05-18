@@ -22,11 +22,11 @@ Der Einfachheit halber wird hierbei das Python-Paket \textit{uncertainties} verw
 % Ende Fehlerrechnung
 
 \subsection{Bestimmung des B-Feldes}
-Im Folgenden sind die Messwerte zur Bestimmung des B-Feldes aufgetragen.
+Im ersten Teil der Auswertung wird das maximal B-Feld bestimmt. Hierbei sind die Messwerte zur Bestimmung des B-Feldes in Abhängigkeit des Abstands aufgetragen.
 
 \begin{table}[H]
     \centering
-    \caption{Messwerte der magnetischen Kraftflussdichte entlang der z-Achse}
+    \caption{Messwerte des B-Feldes entlang der z-Achse}
     \label{tab:magnetfeld}
     \begin{tabular}{rrr}
         \toprule
@@ -70,7 +70,7 @@ Zur Bestimmung des maximalen B-Feldes, also dem B-Feld in dem unsere Proben sitz
 
 \subsection{Drehwinkel der Proben}
 
-Im Folgenden sind die Messwerte zur Bestimmung der Drehwinkel der Proben aufgetragen.
+Im nächsten Schritt werden die Messwerte der Drehwinkel der einzelnen Proben bei verschieden Wellenlängen der Interferenzfilter aufgetragen.
 
 \begin{table}[htpb]
     \centering
@@ -95,8 +95,14 @@ Im Folgenden sind die Messwerte zur Bestimmung der Drehwinkel der Proben aufgetr
     \end{tabular}
 \end{table}
 
+Mithilfe von 
+\begin{equation}
+    1 rad = \frac{\qty{360}{\degree}}{2 \pi}\end{equation}
+und 
+\begin{equation*}
+    \qty{1}{\arcminute} = \frac{1}{60} \unit{\degree}\end{equation*}
+wird der Winkel vom Gradmaß in Bogenmaß umgerechnet.
 Im Folgenden werden die Drehwinkel für die drei Proben in Abhängigkeit der Wellenlänge graphisch aufgetragen. 
-
 
 \begin{figure}[H]
     \centering
@@ -116,7 +122,7 @@ Im Folgenden werden die Drehwinkel für die drei Proben in Abhängigkeit der Wel
     \caption{Drehwinkel der zweiten n-dotierter Probe in Abhängigkeit der Wellenlänge.}
 \end{figure}
 \subsection{Bestimmung der effektiven Masse}
-Im Folgenden wird der die Differenz der n-dotierten Proben zu der undotierten Probe gebildet, um die effektive Masse zu bestimmen.
+Im Folgenden wird die Differenz der Drehwinkel der n-dotierten Proben zu der undotierten Probe gebildet, um die effektive Masse zu bestimmen.
 
 \begin{figure}[H]
     \centering
