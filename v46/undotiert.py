@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 dir = "content/plots/"
 dir_tab = "content/tables/"
 
-# Datei einlesen
+# Datei einlesen (erste Zeile / Header wird übersprungen)
 df = pd.read_excel('raw/undotiert.ods', engine='odf', skiprows=1)
 
-# Spalten auslesen
-wellenlaenge = df.iloc[:, 1].astype(str).str.replace(',', '.').astype(float)
-theta_skaliert = df.iloc[:, 6].astype(str).str.replace(',', '.').astype(float)
+# NEU: Nur Zeilen 2 bis 10 (was im DataFrame Index 0 bis 8 entspricht) auslesen
+wellenlaenge = df.iloc[0:9, 1].astype(str).str.replace(',', '.').astype(float)
+theta_skaliert = df.iloc[0:9, 6].astype(str).str.replace(',', '.').astype(float)
 
 # Wellenlänge quadrieren
 lambda_sq = wellenlaenge ** 2
@@ -18,12 +18,11 @@ lambda_sq = wellenlaenge ** 2
 plt.figure(figsize=(8, 5))
 plt.plot(lambda_sq, theta_skaliert, 'bo', label='Messwerte')
 
-# NEU: Wissenschaftliche Notation für die y-Achse aktivieren
+# Wissenschaftliche Notation für die y-Achse aktivieren
 plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
 
-plt.xlabel(r'Wellenlänge $\lambda^2$ [$\mu m^2$]')
-plt.ylabel(r'Normierter Rotationswinkel $\theta_{skaliert}$ [rad/m]')
-plt.title(r'Faraday-Rotation: $\theta_{skaliert}$ gegen $\lambda^2$ (undotiert)')
+plt.xlabel(r'$\lambda^2$ [$\mu m^2$]')
+plt.ylabel(r'$\theta_{skaliert}$ [rad/m]')
 
 plt.grid(True)
 plt.legend()
