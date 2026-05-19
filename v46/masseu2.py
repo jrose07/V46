@@ -23,8 +23,8 @@ B_err = 0.001
 B = ufloat(B_val, B_err)
 
 # Steigung a in µm^-3 eintragen!
-a_val = 3.00e-5       # Dein abgelesener Wert
-a_err = 0.51e-5       # Dein Fehler
+a_val = 2.54e-5       # Dein abgelesener Wert
+a_err = 0.35e-5       # Dein Fehler
 a_ufloat_um3 = ufloat(a_val, a_err)
 
 # NEU: Umrechnung von µm^-3 in die SI-Einheit m^-3 

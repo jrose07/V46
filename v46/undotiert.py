@@ -22,8 +22,7 @@ plt.plot(lambda_sq, theta_skaliert, 'bo', label='Messwerte')
 plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
 
 plt.xlabel(r'$\lambda^2$ [$\mu m^2$]')
-plt.ylabel(r'$\theta_{skaliert}$ [rad/m]')
-
+plt.ylabel(r'$\theta_{\mathrm{skaliert}}$ [rad/$\mu$m]')
 plt.grid(True)
 plt.legend()
 

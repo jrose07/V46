@@ -46,8 +46,7 @@ plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0), useMathText=True)
 
 # 6. Achsen passend beschriften
 plt.xlabel(r'Wellenlänge $\lambda$ [$\mu m$]')
-plt.ylabel(r'Absoluter Rotationswinkel $\theta_{abs,1}$ [rad/m]')
-plt.title(r'Faraday-Rotation: $\theta_{abs,1}$ gegen $\lambda$ (undotiert)')
+plt.ylabel(r'$\theta_{\mathrm{skaliert}}$ [rad/$\mu$m]')
 
 plt.grid(True)
 plt.legend()

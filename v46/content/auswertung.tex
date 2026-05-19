@@ -70,7 +70,7 @@ Zur Bestimmung des maximalen B-Feldes, also dem B-Feld in dem unsere Proben sitz
 
 \subsection{Drehwinkel der Proben}
 
-Die Eigenschaften der einzelnen Proben sind in folgender Tabelle dargestellt. Hierbei ist $N$ die Dotierungskonzentration, $d$ die Dicke der Probe und $n$ der Brechungsindex der Probe.
+Die Eigenschaften der einzelnen Proben sind in folgender Tabelle dargestellt. Hierbei ist $N$ die Dotierungskonzentration, $d$ die Dicke der Probe und $n$ \cite{Brechungsindex} der Brechungsindex der Probe.
 \begin{table}[H]
     \centering
     \caption{Eigenschaften der Proben.}
@@ -118,6 +118,11 @@ und
 \begin{equation*}
     \qty{1}{\arcminute} = \frac{1}{60} \unit{\degree}\end{equation*}
 wird der Winkel vom Gradmaß in Bogenmaß umgerechnet.
+Der Winkel $\Theta$ wird mithilfe von 
+\begin{equation*}
+    \theta_{skaliert} = \frac{\theta_1 - \theta_2}{2L}
+\end{equation*}
+skaliert.
 Im Folgenden werden die Drehwinkel für die drei Proben in Abhängigkeit der Wellenlänge graphisch aufgetragen. 
 
 \begin{figure}[H]
@@ -154,6 +159,7 @@ Die lineare Regression liefert für $y=a \cdot x + b$ den Wert
     \centering
     \includegraphics[width=0.8\textwidth]{content/plots/theta_abs_2_vs_lambda_linreg.png}
     \caption{Drehwinkel der Differenz der zweiten n-dotierten Probe in Abhängigkeit der Wellenlänge.}
+    \label{fig:masse2}
 \end{figure}
 Die lineare Regression liefert für $y=a \cdot x + b$ den Wert
 \begin{align*}
@@ -170,7 +176,7 @@ kann die effektive Masse $m*$ bestimmt werden.
 Daraus folgt
 \begin{align*}
     m_{\text{eff},1} &= \num{0.046 \pm 0.004} \, m_{\text{e}} \\
-    m_{\text{eff},2} &= \num{0.036 \pm 0.003} \, m_{\text{e}}
+    m_{\text{eff},2} &= \num{0.039 \pm 0.003} \, m_{\text{e}}
 \end{align*}
 für die beiden effektiven Massen.
 \clearpage
