@@ -38,9 +38,9 @@ Permamente Dipolmomente haben keinen großen Beitrag zu dieser Polarisation, da 
 Die dielektrische Suszeptibilität $\chi$ ist im Allgemeinen ein Tensor und kann für ein optisch inaktives Medium (also isotropes Medium)in der Form 
 \begin{equation}
     \chi = \begin{pmatrix}
-        \chi_{xx} & 0 & 0 \\
-        0 & \chi_{yy} & 0 \\
-        0 & 0 & \chi_{zz}
+        \chi_\T{xx} & 0 & 0 \\
+        0 & \chi_\T{yy} & 0 \\
+        0 & 0 & \chi_\T{zz}
     \end{pmatrix}
 \end{equation}
 geschrieben werden. \\
@@ -48,26 +48,33 @@ In einem optisch aktiven Medium, das zirkulare Doppelbrechung zeigt, treten jedo
 Es kann gezeigt werden, dass ein doppelbrechendes Medium eine Suszeptibilität der Form
 \begin{equation}
     \chi = \begin{pmatrix}
-        \chi_{xx} & i\chi_{xy} & 0 \\
-        -i\chi_{xy} & \chi_{yy} & 0 \\
-        0 & 0 & \chi_{zz}
+        \chi_\T{xx} & i\chi_\T{xy} & 0 \\
+        -i\chi_\T{xy} & \chi_\T{yy} & 0 \\
+        0 & 0 & \chi_\T{zz}
     \end{pmatrix}
     \label{eq:chi_doppelbrechung}
 \end{equation}
 besitzt mit den daraus resultierenden Phasengeschwindigkeiten
 \begin{align*}
-    v_{\text{ph},R} &= \frac{c}{\sqrt{1 + \chi_{xx} + \chi_{xy}}} & \quad \text{und} & &
-    v_{\text{ph},L} &= \frac{c}{\sqrt{1 + \chi_{xx} - \chi_{xy}}}.
+    v_{\text{ph},R} &= \frac{c}{\sqrt{1 + \chi_\T{xx} + \chi_\T{xy}}} & \quad \text{und} & &
+    v_{\text{ph},L} &= \frac{c}{\sqrt{1 + \chi_\T{xx} - \chi_\T{xy}}}.
 \end{align*}
 für die unterschiedlichen zirkularen Komponenten. \\
 Der Rotationswikel $\Theta$ lässt sich damit schreiben als
 \begin{equation}
-    \Theta = \frac{L\omega}{2c}\left(\sqrt{1+\chi_{xx} + \chi_{xy}} - \sqrt{1+\chi_{xx}-\chi_{xy}}\right) \, ,
+    \Theta = \frac{L\omega}{2c}\left(\sqrt{1+\chi_\T{xx} + \chi_\T{xy}} - \sqrt{1+\chi_\T{xx}-\chi_\T{xy}}\right) \, ,
 \end{equation} 
-bzw. für kleine $\chi_{xy}$ als
+bzw. für kleine $\chi_\T{xy}$ als
 \begin{equation}
-    \Theta \approx \frac{L\omega}{2c}\frac{\chi_{xy}}{\sqrt{1+\chi_{xx}}} \; .
+    \Theta \approx \frac{L\omega}{2c}\frac{\chi_\T{xy}}{\sqrt{1+\chi_\T{xx}}} \; .
 \end{equation}
+
+Der Term $\sqrt{1+\chi_\T{xx}}$ kann über die Phasengeschwindigkeit $v_\T{ph}$ für $\chi_\T{xy} = 0$ geschrieben werden und es ergibt sich 
+\begin{equation}
+    \Theta \approx \frac{L\omega}{2 c n}\chi_\T{xy} 
+    \label{eq:theta_chi}
+\end{equation} 
+mit dem Brechungsindex $n$ des Mediums.
 
 \subsection{Der Faraday-Effekt}
 
@@ -93,20 +100,61 @@ Nun kann außerdem angenommen werden, dass wegen der hohen Frequenz des Lichts n
 \begin{equation}
     \vec{P} = -N e_0 \vec{r}
 \end{equation}
-mit der Elektronendichte $N$ gilt. \\
-Damit lässt sich Gleichung~\eqref{eq:lorentz_omega} mit dem Zusammenhang $\vec{P} = \epsilon_0 \chi \vec{E}$ in die Form
+mit der Elektronendichte $N$ gilt.
+Weiterhin wird angenommen, dass sich das Licht in $z$-Richtung ausbreitet und damit auch das $B$-Feld in $z$-Richtung zeigt. Das $E$-Feld liegt dann in der $xy$-Ebene.\\ 
+Gleichzeitig muss außerdem der gegebene Zusammenhang zwischen der Polarisation $\vec{P}$ und der elektrischen Feldstärke $\vec{E}$ aus Gleichung~\eqref{eq:polarisation} erfült sein, womit Gleichung~\eqref{eq:lorentz_omega} folgendermaßen umgeschrieben werden kann:
 \begin{align}
-    \left(\omega_0^2 - \omega^2\right)\vec{P} - i\omega \frac{e_0}{m} \vec{P} \times \vec{B} &= \frac{N e_0^2}{m} \vec{E} \\
-    \iff 
+    \left(\omega_0^2 - \omega^2\right)\vec{P} - i\omega \frac{e_0}{m} \vec{P} \times \vec{B}
+    &= \frac{N e_0^2}{m} \vec{E} \, ,\\
+    \intertext{wobei $\omega_0^2 = \frac{K}{m}$ die Eigenfrequenz der Elektronen ist. Ausgeschrieben ergibt sich das Gleichungssystem}
+    \left(\omega_0^2 - \omega^2\right)P_x - i \omega \frac{e_0}{m} P_y B
+    &= \frac{N e_0^2}{m} E_x \\
+    \left(\omega_0^2 - \omega^2\right)P_y + i \omega \frac{e_0}{m} P_x B
+    &= \frac{N e_0^2}{m} E_y \\
+    \left(\omega_0^2 - \omega^2\right)P_z
+    &= \frac{N e_0^2}{m} E_z
+    \intertext{und mit $\chi$ aus Gleichung~\eqref{eq:polarisation} schließlich erstmal für die $z$-Komponente}
+    \left(\omega_0^2 - \omega^2\right)\epsilon_0\left(\ \chi_\T{xz}E_x + \chi_\T{yz}E_y + \chi_\T{zz}E_z \right) &= \frac{N e_0^2}{m} E_z \; .
 \end{align}
-bringen, wobei $\omega_0^2 = \frac{K}{m}$ die Eigenfrequenz der Elektronen ist. \\
-Die Lösung dieser Gleichung zeigt, dass die Suszeptibilität des Mediums genau die für die Doppelbrechung geforderte Form aus Gleichung~\eqref{eq:chi_doppelbrechung}
-mit 
-\begin{equation}
-    \chi_{xy} = \frac{N e_0^3 \omega B}{\epsilon_0 m^2 (\omega_0^2 - \omega^2)^2}
-\end{equation}  
-besitzt. \\
+Da die $x$- und $y$-Komponenten des elektrischen Feldes ungleich null sein müssen und unabhängig von $E_z$ sind, ist es klar, dass $\chi_\T{xz} = \chi_\T{yz} = 0$ und $\chi_\T{zz} = \frac{N e_0^2}{\epsilon_0 m (\omega_0^2 - \omega^2)}$ gilt. \\
+Für die $x$- und $y$-Komponenten ergibt sich schließlich das Gleichungssystem
+\begin{align}
+    \left(\omega_0^2 - \omega^2\right)\epsilon_0\left(\chi_\T{xx}E_x + \chi_\T{xy}E_y\right) - i \omega \frac{e_0}{m} \epsilon_0\left(\chi_\T{yx}E_x + \chi_\T{yy}E_y\right) B &= \frac{N e_0^2}{m} E_x \\
+    \left(\omega_0^2 - \omega^2\right)\epsilon_0\left(\chi_\T{yx}E_x + \chi_\T{yy}E_y\right) + i \omega \frac{e_0}{m} \epsilon_0\left(\chi_\T{xx}E_x + \chi_\T{xy}E_y\right) B &= \frac{N e_0^2}{m} E_y \; .
+\end{align}
+Um dieses Gleichungssystem von $E_x$ und $E_y$ zu entkoppeln wird angenommen, dass $\chi_\T{xy} = i\chi_\T{xy}$ und $\chi_\T{yx} = i\chi_\T{yx}$ sind, sowie zueinander komplex konjugiert, wodurch sich dann für beide Gleichungen jeweils für Real- und Imaginärteil
+\begin{align}
+    \left(\omega_0^2 - \omega^2\right)\epsilon_0 \chi_\T{xx} &= \frac{N e_0^2}{m} - \omega \frac{e_0}{m} \epsilon_0 \chi_\T{yx} B~\label{eq:chi_xy_1} \\
+    \left(\omega_0^2 - \omega^2\right) \chi_\T{xy} &= \omega \frac{e_0}{m}\chi_\T{yy}B~\label{eq:chi_xy_2} \\
+    \intertext{und}
+    \left(\omega_0^2 - \omega^2\right)\epsilon_0 \chi_\T{yy} &= \frac{N e_0^2}{m} + \omega \frac{e_0}{m} \epsilon_0 \chi_\T{xy} B~\label{eq:chi_xy_3} \\
+    \left(\omega_0^2 - \omega^2\right)\chi_\T{yx} &= -\omega \frac{e_0}{m} \chi_\T{xx} B
+\end{align}
+ergeben. \\
+Das System nimmt also eine Suszeptibilität, wie schon aus Gleichung~\eqref{eq:chi_doppelbrechung} bekannt, an, das $B$-Feld induziert also genau die Anisitropie, die für eine Doppelbrechung notwendig ist. \\
 
+Um den zu erwartenden Rotationswinkel $\Theta$ zu berechen, muss gemäß von Gleichung~\eqref{eq:theta_chi} noch der Wert für $\chi_\T{xy}$ bestimmt werden. \\
+Aus den Gleichungen~\eqref{eq:chi_xy_1},~\eqref{eq:chi_xy_2} und~\eqref{eq:chi_xy_3} ergibt sich schließlich
+\begin{equation}
+    \chi_\T{xy} = \frac{N e_0^3 \omega B}{\epsilon_0 m^2 \left((\omega_0^2 - \omega^2)^2 -\left(\frac{\omega e_0 B}{m}\right)^2\right)} 
+    \label{eq:chi_xy}
+\end{equation}
+und damit 
+\begin{equation}
+    \Theta = \frac{e_0^3}{2\epsilon_0 m^2 c}\frac{\omega^2}{\left(\omega_0^2-\omega^2\right)^2 - \left(\frac{e_0\omega B}{m}\right)^2}\frac{NBL}{n} \, .
+\end{equation}
+
+Der Term $\frac{Be_0}{m}$ wird als Zyklotronfrequenz $\omega_\T{c}$ bezeichnet, die für Halbleitern normalerweise deutlich kleiner als die Resonanzfrequenz $\omega_0$ liegt. Solange also die Messfrequenz $\omega$ nicht zu nah an der Resonanzfrequenz liegt, kann der $\omega_\T{c}$-Term und bei $\omega \ll \omega_0$ auch der $\omega^2$-Term im Nenner vernachlässigt werden, wodurch sich die Formel für den Rotationswinkel zu
+\begin{equation}
+    \Theta \approx \frac{e_0^3}{2\epsilon_0 m^2 c}\frac{\omega^2}{\omega_0^4}\frac{NBL}{n}
+\end{equation} 
+vereinfachen lässt. \\
+Wird außerdem der Fall quasifreier Elektronen $\omega_0 \rightarrow 0$ betrachtet kann unter Umständen statt der Elektronenmasse $m$ auch die effektive Masse $m^*$ der Kristallelektronen in die Formel eingesetzt werden und es ergibt sich 
+\begin{equation}
+    \Theta_\T{frei} = \frac{e_0^3}{2\epsilon_0 (m^*)^2 c}\lambda^2 \frac{NBL}{n} \, .
+    \label{eq:theta_faraday}
+\end{equation}
+$\Theta_\T{frei}$ ist die Faraday-Rotation pro Einheitslänge ($\Theta / L$), $\lambda$ die Wellenlänge des Lichts, $n$ der Brechungsindex des Mediums, $N$ die Dichte quasifreier Elektronen, also hauptsächlich die Donatorendichte in einem n-dotiereten Halbleiter, $B$ die Stärke des Magnetfelds und $m^*$ die effektive Masse der Elektronen. 
 \subsection{Das Glan-Thompson-Prisma}
 
 
