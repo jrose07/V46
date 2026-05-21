@@ -3,6 +3,58 @@
 
 \subsection{Die effektive Masse}
 
+Um die Wirkung von äußeren Kräften (also Kräften, die nicht durch die Kristallstruktur des Festkörpers auftreten) auf die Leitungselektronen im Festkörper zu beschrieben, wird oft das Modell der \textit{effektiven Masse} verwendet. \\
+
+Die Grundmotivation für diese Näherung ist es, weiterhin die für freie Elektronen gültigen Newtonsche Formel zur Beschreibung der Kraftwirkung auf ein Elektron 
+\begin{equation}
+    a = \frac{1}{m} F
+    \label{eq:newton}
+\end{equation}
+nutzen zu können. \\
+Das Ziel ist es, die Wechselwirkung des Elektrons mit dem Kristallpotential in den Formalismus einer effektiven Masse zu bringen, sodass weiterhin das 2. Newtonsche Gesetz für freie Elektronen angewandt werden kann. \\
+
+Für ein Wellenpaket der Gruppengeschwindigkeit $v_g$ gilt 
+\begin{align}
+    v_g &= \dif{\omega}{k} =  \frac{1}{\hbar} \dif{E}{k} \\
+    \Leftrightarrow a &= \dif{v_g}{t} = \frac{1}{\hbar} \frac{\symup{d}^2 E}{\symup{d}k\symup{d}t} = \frac{1}{\hbar} \dif{E}{k}[2] \dif{k}{t} 
+\end{align}
+und mit der allgemeinen Relation $F = \hbar \dif{k}{t}$ ergibt sich 
+\begin{equation}
+    a = \frac{1}{\hbar^2} \dif{E}{k}[2] F \; .
+\end{equation}
+Unter Vergleich mit dem Newtonschen Gesetz~\eqref{eq:newton} ist erkennbar, dass jetzt nur noch die effektive Masse $m^*$ als 
+\begin{equation}
+    m^* = \hbar^2 \left(\dif{E}{k}[2]\right)^{-1}
+    \label{eq:effektive_masse}
+\end{equation}
+identifiziert werden muss, um die Newtonsche Gleichung für Kristallelektronen 
+\begin{equation}
+    a = \frac{1}{m^*}F
+\end{equation}
+zu erhalten. \\
+
+
+Um die Grenzen der Näherung zu verstehen ist der Zusammenhang zur Energiedispersion der Elektronen zu betrachten. Wird die allgemeine Dispersion $E(\vec{k})$ bis zur 2. Ordnung entwickelt, ergibt sich  
+\begin{align}
+    E(\vec{k}) &= E_0 +  \frac{1}{2}\dif{E}{k}[2] k^2 + \mathcal{O}(k^3) \\
+            &= E_0 + \frac{\hbar^2k^2}{2m^*} + \mathcal{O}(k^3)
+\end{align}
+mit der effektiven Masse $m^*$. \\
+Die Energiebänder werden also, wie in \autoref{fig:effektive_masse} zu sehen, als freie Elektronen der Masse $m^*$ mit paraboloider Dispersion approximiert. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{content/pics/effektive_masse.png}
+    \caption{Die effektive Massen-Näherung im einfachen Bändermodell eines Festkörpers.~\cite{Durchfuhrung}}~\label{fig:effektive_masse}
+\end{figure} 
+
+Es ist also klar, dass die Näherung besonders gut um Minima und Maxima von Valenz- und Leitungsbändern funktioniert, weil die Parabelnäherung dort nur kleine Fehler aufweist. In anderen Bereichen von $k$ oder für wenig-parabelförmige Energiebänder kann es dann auch passieren, dass die effektive Masse vom Wellenvektor $k$ bzw. der Energie $E$ abhängig ist, sodass kein konstanter Wert festgelegt werden kann.
+Für Anistrope Medien ist $m^*$ der Tensor 
+\begin{equation}
+    (m^*)_{ij} = \hbar^2 \left(\frac{\symup{d}^2E}{\symup{d}k_i\symup{d}k_j}\right)^{-1}
+\end{equation}
+was dazu führt, dass Beschleunigung und Kraft nicht unbedingt parallel zueinander sind.
+
 \subsection{Zirkulare Doppelbrechung}
 
 Zirkuläre Doppelbrechung beschreibt den Effekt, dass die Polarisationsebene eines linear polarisierten Lichtstrahls beim Durchgang durch ein Medium gedreht wird, so wie in \autoref{fig:doppelbrechung} dargestellt.
@@ -155,7 +207,5 @@ Wird außerdem der Fall quasifreier Elektronen $\omega_0 \rightarrow 0$ betracht
     \label{eq:theta_faraday}
 \end{equation}
 $\Theta_\T{frei}$ ist die Faraday-Rotation pro Einheitslänge ($\Theta / L$), $\lambda$ die Wellenlänge des Lichts, $n$ der Brechungsindex des Mediums, $N$ die Dichte quasifreier Elektronen, also hauptsächlich die Donatorendichte in einem n-dotiereten Halbleiter, $B$ die Stärke des Magnetfelds und $m^*$ die effektive Masse der Elektronen. 
-\subsection{Das Glan-Thompson-Prisma}
-
 
 \clearpage
