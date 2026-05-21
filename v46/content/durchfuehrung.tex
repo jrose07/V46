@@ -1,11 +1,46 @@
 \section{Durchführung}
 \label{sec:Durchführung}
 
+\subsection{Versuchsaufbau}
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{content/pics/aufbau.png}
     \caption{Darstellung des Versuchsaufbaus.~\cite{Durchfuhrung}}
     \label{fig:aufbau}
 \end{figure}
+
+Um den Faraday-Effekt an verschiedenen Proben messen zu können, wird der Versuchsaufbau aus \autoref{fig:aufbau} verwendet. \\
+Als Lichtquelle dient hier eine Halogen-Lampe ($\qty{12}{\volt}; \qty{50}{\watt})$ mit einem Spektrum nahe des Infraroten-Bereichs, dessen Licht mithilfe eines Kondensors parallelisiert und senkrecht auf ein Glan-Thompson-Prisma emittiert wird. \\
+Durch das Prisma wird nur eine von dessen Drehwinkel abhängige linear polarisierte Komponente hindurchgelassen, während der dazu senkrecht polarisierte Anteil von der optischen Achse weg reflektiert wird. \\
+Mithilfe des am Prisma montierten Goniometers lässt sich der später für die Messung relevante Drehwinkel des Prismas ablesen. \\
+Das nun linear polarisierte Licht trifft dann auf die zu untersuchende Probe, welche in dem Luftspalt eines Elektromagneten platziert ist, erfährt dort eine vom Magnetfeld abhängige Faraday-Rotation und trift danach auf die Messaparatur. \\
+Um auch die Wellenlängenabhägigkeit der Rotation zu messen wird zwischen Messaparatur und Magnet ein Interferenzfilter eingebaut, um nur monochromatisches Licht zu betrachten. \\
+Die Messaparatur selbst besteht aus einem weiteren, fest-eingestelltem Glan-Thompson-Prisma, welches widerum das rotierte Licht in eine parallele und senkrechte Komponente aufspaltet, welche jeweils mithilfe einer Sammellinse auf eine Photodiode fokussiert werden. \\
+Als Messmethode wird hier die \textit{balancierte Detektion} verwendet, die Signale der beiden Photodioden werden also in einem Differenzverstärker voneinander abgezogen und dann an einen Selektivverstärker weitergegeben. Dieser wird auf die Frequenz des Lichtzerhackers, der sich direkt bei der Lichquelle zwischen Kondensor und Polarisator befindet, eingestellt und an ein Oszilloskop gegeben. \\
+
+Diese Methode hat zum Vorteil, dass sie im Vergleich zu einer Ein-Detektor-Methode weitaus weniger fehleranfällig ist, was zum einen daran liegt, dass systematische Fehler, die beide Photodioden gleich betreffen sollten bei der Differenzbildung herausgenommen werden. Zum anderen kann durch die Kombination aus Lichtzerhacker und Selektivverstärker dem Signal eine Frequenzmarkierung gegeben werden, die vom Selektivverstärker so ausgenutzt werden kann, dass nur das gewünschte, also zuvor markierte Signal verstärkt werden kann, wodurch Fehler durch Hintergrundrauschen in einem großen Frequenzbereich minimiert werden. 
+
+\subsection{Durchführung}
+
+\subsubsection{Messung der Faraday-Rotation}
+Es soll für $3$ verschiedene GaAs-Proben, mit unterschiedlicher Dotierung, die Faraday-Rotation für $9$ verschiedene Lichtwellenlängen asusgemessen werden. \\
+Dazu wird wie folgt vorgegeangen:
+\begin{enumerate}
+    \item \textbf{Justierung und Einstellung der Messaparatur}:
+    Es wird zuerst überprüft, ob der Lichteinfall auf den mit Goniometer ausgestatteten Polarisator sennkrecht ist. Dazu wird bei geöffnetem Deckel der Photodioden überprüft, ob es möglich ist bei Veränderung des Rotationswinkels die Lichtintensität des durchgehendes Strahls vollständig verschwinden zu lassen. \\
+    Ist dies der Fall, müssen nun auch die Sammellinsen vor den Photodioden so eingestellt werden, dass das Lichtsignal bei Rotation des Polarisators zwischen den Photodioden hin- und hergeschaltet werden kann. \\
+    Um schließlich den Selektivverstärker mit dem Lichtzerhacker zu synchronisieren, wird eine Photodiode mit dem Selektivverstärker, sowie der Selektivverstärker mit dem Oszilloskop per Kabel verbunden. Der Lichtzerhacker wird nun angeschaltet und auf eine Frequenz von wenigen Hundert Hertz eingestellt (ca. $\qty{450}{\hertz}$). Die Güte des Selektivverstärkers wird auf den Maximalwert $Q=100$ eingestellt und dann die Frequenz auf die Frequenz des Lichtzerhackers eingestellt, indem diese solange verändert wird, bis ein Maximum der Intensität erreicht ist. \\
+    Um dann mit den Messungen beginnen zu können, werden beide Photodioden mit dem Differenzverstärker verbunden, dieser mit dem eingestellten Selektivverstärker und dieser mit dem Oszilloskop.
+    \item \textbf{Messreihe}:
+    Zuerst wird die zu untersuchende Probe in den Elektromagneten, sowie einer der $9$ verschiedenen Interferenzfilter in den Strahlungsgang eingeführt. Dann wird das Magnetfeld eingeschaltet und auf die maximale $B$-Feldstärke eingestellt.\\
+    Nun wird der Polarisator so lange rotiert, bis am Oszilloskop ein Minimum zu erkennen ist, also die Anteile der beiden senkrecht zueinander polarisierten Lichtstrahlen am Analysatorprisma gleich groß sind. Der dabei eingestellte Winkel wird am Goniometer abgelesen und notiert. \\
+    Dann wird das $B$-Feld umgepolt und durch Drehung des Polarisators das neue Minimum gesucht. Dieses sollte sich in einem Winkelbereich von bis zu $30^\circ$ befinden. Der Drehwinkel wird ebenfalls notiert. \\
+    Die Messung wird dann für alle weiteren Kombinationen aus Interferenzfiltern und Proben durchgeführt.
+\end{enumerate}
+
+
+\subsubsection{Messung des $B$-Feldes}
+Um die maximale $B$-Feldstärke des Elektromagneten zu bestimmen, werden das Analysatorprisma und die Photodioden vom Aufbau entfernt und eine Hallsonde wird in den Magneten bis zu dem Luftspalt, wo die Probe säße, eingeführt. Dort wird bei maximaler Spannung das $B$-Feld um den maximal gemessenen Wert herum in Abhängigkeit von der Position $x$ gemessen und am Teslameter abgelesen.
 
 \clearpage
